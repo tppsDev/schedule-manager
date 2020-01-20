@@ -1,5 +1,5 @@
 # schedule-manager
-Schedule Manager is built for the WGU C195 Advanced Java assessment
+Schedule Manager is built for the WGU C195 Advanced Java assessment submitted 11/2020
 
 Requirements:
 You are not allowed to use frameworks or external libraries. The database does not contain data, so it needs to be populated. You must use “test” as the username and password to log-in.
