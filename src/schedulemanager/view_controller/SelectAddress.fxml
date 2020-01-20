@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="1080.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.SelectAddressController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="1080.0" styleClass="form-heading-pane">
+         <children>
+            <Label layoutX="428.0" layoutY="30.0" styleClass="form-heading-title-label" text="Select Address" />
+            <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="951.0" layoutY="44.0" prefHeight="22.0" prefWidth="99.0" styleClass="form-heading-user-label" text="Label" />
+            <ProgressIndicator fx:id="progressIndicator" layoutX="768.0" layoutY="39.0" prefHeight="33.0" prefWidth="45.0" style="-fx-progress-color: white;" />
+            <ImageView fitHeight="99.0" fitWidth="200.0" layoutX="28.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="199.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="55.0" layoutY="137.0" prefHeight="20.0" prefWidth="1003.0" spacing="5.0">
+         <children>
+            <TextField fx:id="addrFilterTextField" maxWidth="300.0" prefHeight="20.0" prefWidth="300.0" />
+            <ImageView fx:id="clearAddrFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearAddrFilter" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+               <image>
+                  <Image url="@clear-filter.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="cityFilterTextField" maxWidth="300.0" prefHeight="20.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fx:id="clearCityFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearCityFilter" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+               <image>
+                  <Image url="@clear-filter.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="postalCodeFilterTextField" prefHeight="20.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fx:id="clearPostalCodeFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearPostalCodeFilter" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+               <image>
+                  <Image url="@clear-filter.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="phoneFilterTextField" maxWidth="120.0" prefHeight="20.0" prefWidth="120.0">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fx:id="clearPhoneFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearPhoneFilter" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+               <image>
+                  <Image url="@clear-filter.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <TableView fx:id="addressTable" layoutX="17.0" layoutY="232.0" prefHeight="243.0" prefWidth="1041.0">
+        <columns>
+          <TableColumn fx:id="selectButtonColumn" prefWidth="40.0" />
+          <TableColumn fx:id="addrColumn" prefWidth="225.0" text="Street Address" />
+            <TableColumn fx:id="addr2Column" prefWidth="225.0" text="Ext. Address" />
+            <TableColumn fx:id="cityColumn" prefWidth="350.0" text="City" />
+            <TableColumn fx:id="postalCodeColumn" prefWidth="100.0" text="Postal Code" />
+            <TableColumn fx:id="phoneColumn" prefWidth="100.0" text="Phone" />
+        </columns>
+      </TableView>
+      <Label layoutX="55.0" layoutY="112.0" styleClass="form-label" text="Address / Ext. Address" underline="true" />
+      <Label layoutX="400.0" layoutY="112.0" styleClass="form-label" text="City / Country" underline="true" />
+      <Label layoutX="745.0" layoutY="112.0" styleClass="form-label" text="Postal Code" underline="true" />
+      <Label layoutX="910.0" layoutY="112.0" styleClass="form-label" text="Phone" underline="true" />
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="493.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="826.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="957.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="statusLabel" layoutX="17.0" layoutY="495.0" prefHeight="20.0" prefWidth="943.0" styleClass="status-label" />
+      <Button fx:id="cancelButton" layoutX="996.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel" />
+      <Button fx:id="clearAllFiltersButton" layoutX="938.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleClearAllFilters" prefHeight="30.0" prefWidth="120.0" text="Clear All Filters" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="713.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.AddAppointmentController">
+   <children>
+      <AnchorPane prefHeight="141.0" prefWidth="713.0" styleClass="form-heading-pane">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="577.0" layoutY="37.0" prefHeight="30.0" prefWidth="122.0" styleClass="form-heading-user-label" text="User Name" />
+            <Label alignment="CENTER" layoutX="236.0" layoutY="30.0" styleClass="form-heading-title-label" text="Add Appointment" />
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER_RIGHT" layoutX="151.0" layoutY="118.0" prefHeight="25.0" prefWidth="302.0" spacing="10.0">
+         <children>
+            <ProgressIndicator fx:id="progressIndicator">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </ProgressIndicator>
+            <Button fx:id="clearFormButton" mnemonicParsing="false" onAction="#handleClearFormButton" text="Clear Form" />
+         </children>
+      </HBox>
+      <GridPane fx:id="formGridPane" alignment="TOP_RIGHT" hgap="10.0" layoutY="150.0" prefHeight="429.0" prefWidth="713.0" vgap="5.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" percentWidth="15.0" prefWidth="133.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" percentWidth="27.0" prefWidth="161.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="265.0" minWidth="10.0" percentWidth="29.0" prefWidth="161.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" percentWidth="40.0" prefWidth="161.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="25.0" minHeight="10.0" percentHeight="9.0" prefHeight="25.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="140.0" text="Start Time" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="140.0" text="End Time" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="140.0" text="Customer" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="140.0" text="Consultant" GridPane.rowIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="140.0" text="Type" GridPane.rowIndex="7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="145.0" text="Description" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="140.0" text="URL" GridPane.rowIndex="8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="140.0" text="Contact" GridPane.rowIndex="5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="140.0" text="Location" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="titleField" maxHeight="42.0" prefHeight="42.0" prefWidth="349.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </TextField>
+            <DatePicker fx:id="startDatePicker" maxHeight="50.0" prefHeight="50.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <HBox fx:id="startTimeHBox" maxWidth="175.0" prefHeight="40.0" prefWidth="175.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+               <children>
+                  <Spinner fx:id="startHourSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+                  <Spinner fx:id="startMinuteSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+                  <Spinner fx:id="startAmPmSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+               </children>
+            </HBox>
+            <DatePicker fx:id="endDatePicker" prefHeight="53.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <HBox fx:id="endTimeHBox" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+               <children>
+                  <Spinner fx:id="endHourSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+                  <Spinner fx:id="endMinuteSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+                  <Spinner fx:id="endAmPmSpinner" prefHeight="33.0" HBox.hgrow="NEVER" />
+               </children>
+            </HBox>
+            <ChoiceBox fx:id="customerChoiceBox" prefHeight="41.0" prefWidth="349.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <TextField fx:id="contactField" maxHeight="71.0" prefHeight="71.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="locationField" maxHeight="46.0" prefHeight="46.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="typeField" maxHeight="40.0" prefHeight="40.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </TextField>
+            <TextField fx:id="urlField" maxHeight="34.0" prefHeight="34.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </TextField>
+            <TextArea fx:id="descriptionTextArea" prefHeight="17.0" prefWidth="290.0" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+            <Label fx:id="startTimeErrorLabel" prefHeight="57.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="endTimeErrorLabel" prefHeight="49.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="customerErrorLabel" prefHeight="72.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label fx:id="consultantErrorLabel" prefHeight="71.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label fx:id="contactErrorLabel" prefHeight="52.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="locationErrorLabel" prefHeight="45.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label fx:id="urlErrorLabel" prefHeight="43.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Label fx:id="typeErrorLabel" prefHeight="50.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label fx:id="descriptionErrorLabel" prefHeight="69.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="140.0" text="Title">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="titleErrorLabel" prefHeight="48.0" prefWidth="243.0" textFill="RED" wrapText="true" GridPane.columnIndex="3">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="consultantChoiceBox" prefHeight="33.0" prefWidth="411.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+         </padding>
+      </GridPane>
+      <Button fx:id="cancelButton" layoutX="278.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="40.0" prefWidth="81.0" text="Cancel">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveButton" layoutX="372.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleSaveButton" prefHeight="40.0" prefWidth="81.0" text="Save">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

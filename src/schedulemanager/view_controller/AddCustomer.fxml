@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.AddCustomerController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="690.0" styleClass="form-heading-pane">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="34.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="234.0" layoutY="31.0" prefHeight="44.0" prefWidth="241.0" styleClass="form-heading-title-label" text="Add Customer" />
+            <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="548.0" layoutY="38.0" prefHeight="30.0" prefWidth="122.0" styleClass="form-heading-user-label" text="User Name" />
+            <ProgressIndicator fx:id="progressIndicator" layoutX="503.0" layoutY="37.0" prefHeight="33.0" prefWidth="45.0" style="-fx-progress-color: white;" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="26.0" layoutY="136.0" styleClass="form-label" text="Customer Name" />
+      <Label fx:id="customerNameErrorLabel" layoutX="136.0" layoutY="136.0" prefHeight="20.0" prefWidth="358.0" styleClass="error-label" />
+      <TextField fx:id="customerNameTextField" layoutX="26.0" layoutY="162.0" prefHeight="20.0" prefWidth="250.0" />
+      <CheckBox fx:id="activeCheckBox" layoutX="26.0" layoutY="201.0" mnemonicParsing="false" selected="true" styleClass="form-label" text="Active" />
+      <StackPane layoutX="1.0" layoutY="241.0" prefHeight="361.0" prefWidth="513.0">
+         <children>
+            <VBox id="selectAddressVBox" fx:id="selectAddressVBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="v-box-opaque">
+               <children>
+                  <Button fx:id="selectAddrButton" mnemonicParsing="false" onAction="#handleSelectAddrButton" text="Select Address">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label minWidth="100.0" prefWidth="101.0" styleClass="form-label" text="Phone" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="displayPhoneTextField" disable="true" editable="false" focusTraversable="false" maxWidth="150.0" prefHeight="20.0" prefWidth="150.0" />
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label prefWidth="101.0" styleClass="form-label" text="Address" />
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="displayAddressTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+               <StackPane.margin>
+                  <Insets left="25.0" right="15.0" />
+               </StackPane.margin>
+            </VBox>
+            <VBox id="addAddressVBox" fx:id="addAddressVBox" prefHeight="296.0" prefWidth="513.0" spacing="10.0" styleClass="v-box-opaque">
+               <children>
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label minWidth="100.0" prefWidth="101.0" styleClass="form-label" text="Phone" />
+                        <Label fx:id="phoneErrorLabel" prefHeight="20.0" prefWidth="428.0" styleClass="error-label" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="phoneTextField" maxWidth="150.0" prefHeight="20.0" prefWidth="150.0" />
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label prefWidth="101.0" styleClass="form-label" text="Street Address" />
+                        <Label fx:id="addrErrorLabel" prefHeight="20.0" prefWidth="358.0" styleClass="error-label" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="addressTextField" maxWidth="400.0" prefHeight="20.0" prefWidth="400.0" />
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label prefWidth="101.0" styleClass="form-label" text="Ext. Address" />
+                        <Label fx:id="addr2ErrorLabel" prefHeight="20.0" prefWidth="358.0" styleClass="error-label" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="address2TextField" maxWidth="400.0" prefHeight="20.0" prefWidth="400.0" />
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label prefWidth="101.0" styleClass="form-label" text="City" />
+                        <Label fx:id="cityErrorLabel" prefHeight="20.0" prefWidth="358.0" styleClass="error-label" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="15.0">
+                     <children>
+                        <ChoiceBox fx:id="cityChoiceBox" prefHeight="0.0" prefWidth="400.0" />
+                        <Button fx:id="addCityButton" mnemonicParsing="false" onAction="#handleAddCityButton" styleClass="fav-button" text="+" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="0.0" prefWidth="493.0" spacing="10.0">
+                     <children>
+                        <Label prefWidth="101.0" styleClass="form-label" text="Postal Code" />
+                        <Label fx:id="postalCodeErrorLabel" prefHeight="20.0" prefWidth="358.0" styleClass="error-label" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="postalCodeTextField" maxWidth="100.0" prefHeight="20.0" prefWidth="120.0" />
+               </children>
+               <StackPane.margin>
+                  <Insets left="25.0" right="15.0" />
+               </StackPane.margin>
+            </VBox>
+         </children>
+      </StackPane>
+      <Button fx:id="cancelButton" layoutX="514.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleCancelButton" text="Cancel" />
+      <Button fx:id="submitButton" layoutX="595.0" layoutY="551.0" mnemonicParsing="false" onAction="#handleSubmitButton" text="Submit" />
+      <RadioButton fx:id="addAddrRadioButton" layoutX="127.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleAddOrSelectRadioButtons" selected="true" styleClass="form-label" text="Add Address">
+         <toggleGroup>
+            <ToggleGroup fx:id="addressToggleGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="selectAddrRadioButton" layoutX="243.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleAddOrSelectRadioButtons" styleClass="form-label" text="Select Existing Address" toggleGroup="$addressToggleGroup" />
+   </children>
+   <styleClass>
+      <String fx:value="mainFxmlClass" />
+      <String fx:value="default-background" />
+   </styleClass>
+</AnchorPane>

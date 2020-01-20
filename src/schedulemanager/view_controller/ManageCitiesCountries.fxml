@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="753.0" prefWidth="944.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="schedulemanager.view_controller.ManageCitiesCountriesController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="513.0" prefWidth="944.0" styleClass="form-heading-pane">
+         <children>
+            <Label layoutX="266.0" layoutY="30.0" styleClass="form-heading-title-label" text="Manage Cities &amp; Countries" />
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="currentUserLabel" layoutX="813.0" layoutY="37.0" prefHeight="30.0" prefWidth="122.0" styleClass="form-heading-user-label" text="User Name" />
+            <ProgressIndicator fx:id="progressIndicator" layoutX="701.0" layoutY="32.0" prefHeight="44.0" prefWidth="39.0" style="-fx-progress-color: white;" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="cityTableView" layoutX="36.0" layoutY="180.0" prefHeight="375.0" prefWidth="512.0">
+        <columns>
+            <TableColumn fx:id="cityEditColumn" prefWidth="50.0" text="Edit" />
+            <TableColumn fx:id="cityDeleteColumn" prefWidth="50.0" text="Delete" />
+          <TableColumn fx:id="cityColumn" prefWidth="200.0" text="City" />
+          <TableColumn fx:id="cityCountryColumn" prefWidth="210.0" text="Country" />
+        </columns>
+      </TableView>
+      <TableView fx:id="countryTableView" layoutX="579.0" layoutY="180.0" prefHeight="375.0" prefWidth="332.0">
+        <columns>
+            <TableColumn fx:id="countryEditColumn" prefWidth="50.0" text="Edit" />
+          <TableColumn fx:id="countryDeleteColumn" prefWidth="50.0" text="Delete" />
+            <TableColumn fx:id="countryColumn" prefWidth="210.0" text="Country" />
+        </columns>
+      </TableView>
+      <Label layoutX="36.0" layoutY="115.0" text="Cities" underline="true">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="579.0" layoutY="115.0" text="Countries" underline="true">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="66.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="cityFilterTextField" layoutX="86.0" layoutY="153.0" />
+      <ImageView fx:id="clearCityFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" layoutX="258.0" layoutY="153.0" onMouseClicked="#handleClearCityFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+         <image>
+            <Image url="@clear-filter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="287.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="countryFilterCityTableTextField" layoutX="307.0" layoutY="153.0" prefHeight="20.0" prefWidth="213.0" />
+      <ImageView fx:id="clearCityCountryFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" layoutX="527.0" layoutY="153.0" onMouseClicked="#handleClearCityCountryFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+         <image>
+            <Image url="@clear-filter.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="addCityButton" layoutX="474.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleAddCityButton" text="Add City" />
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="638.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="countryFilterCountryTableTextField" layoutX="659.0" layoutY="153.0" prefHeight="20.0" prefWidth="207.0" />
+      <ImageView fx:id="clearCountryFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" layoutX="871.0" layoutY="153.0" onMouseClicked="#clearCountryFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+         <image>
+            <Image url="@clear-filter.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="addCountryButton" layoutX="810.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleAddCountryButton" text="Add Country" />
+      <AnchorPane id="countryFormPane" fx:id="countryFormPane" layoutX="598.0" layoutY="569.0" prefHeight="97.0" prefWidth="311.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" styleClass="form-label" text="Country" />
+            <Label fx:id="countryFormCountryErrorLabel" layoutX="77.0" layoutY="14.0" prefHeight="20.0" prefWidth="222.0" styleClass="error-label" />
+            <TextField fx:id="countryFormCountryTextField" layoutX="14.0" layoutY="36.0" prefHeight="20.0" prefWidth="284.0" />
+            <Button fx:id="countryFormCancelButton" layoutX="164.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleAddCountryFormCancelButton" text="Cancel" />
+            <Button fx:id="countryFormSubmitButton" layoutX="235.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleAddCountryFormSubmitButton" text="Submit" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="cityFormPane" fx:id="cityFormPane" layoutX="36.0" layoutY="569.0" prefHeight="184.0" prefWidth="320.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" styleClass="form-label" text="City" />
+            <Label fx:id="cityFormCityErrorLabel" layoutX="77.0" layoutY="14.0" prefHeight="20.0" prefWidth="222.0" styleClass="error-label" />
+            <TextField fx:id="cityFormCityTextField" layoutX="14.0" layoutY="36.0" prefHeight="20.0" prefWidth="284.0" />
+            <Button fx:id="cityFormCancelButton" layoutX="166.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleAddCityFormCancelButton" text="Cancel" />
+            <Button fx:id="cityFormSubmitButton" layoutX="235.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleAddCityFormSubmitButton" text="Submit" />
+            <Label layoutX="14.0" layoutY="63.0" styleClass="form-label" text="Country" />
+            <Label fx:id="cityFormCountryErrorLabel" layoutX="77.0" layoutY="63.0" prefHeight="20.0" prefWidth="222.0" styleClass="error-label" />
+            <ComboBox fx:id="cityFormCountryComboBox" layoutX="12.0" layoutY="86.0" prefHeight="30.0" prefWidth="284.0" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="statusLabel" layoutX="387.0" layoutY="720.0" prefHeight="20.0" prefWidth="526.0" styleClass="status-label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

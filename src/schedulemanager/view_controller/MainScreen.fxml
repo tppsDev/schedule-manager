@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="776.0" prefWidth="1281.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.MainScreenController">
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="1281.0" style="-fx-background-color: #124;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="currentDateLabel" alignment="CENTER" layoutX="56.0" layoutY="39.0" text="Month XX, XXXX" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="300.0" layoutY="1.0" onMouseClicked="#doStuff" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="529.0" layoutY="32.0" text="Schedule Manager" textFill="WHITE">
+               <font>
+                  <Font name="Cambria" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="currentUserLabel" alignment="CENTER_RIGHT" layoutX="1028.0" layoutY="40.0" prefHeight="27.0" prefWidth="188.0" styleClass="form-heading-user-label" text="User name" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ProgressIndicator fx:id="viewProgressIndicator" layoutX="844.0" layoutY="33.0" prefHeight="40.0" prefWidth="65.0" style="-fx-progress-color: white;" />
+         </children>
+      </AnchorPane>
+      <StackPane layoutX="229.5" layoutY="105.0">
+         <children>
+            <Pane id="apptViewPane" prefHeight="668.0" prefWidth="1051.0" style="-fx-background-color: #fff;">
+               <children>
+                  <HBox alignment="CENTER" layoutX="1.0" layoutY="2.0" prefHeight="60.0" prefWidth="1048.0">
+                     <children>
+                        <Button fx:id="todayButton" mnemonicParsing="false" onAction="#handleTodayButtonClick" prefWidth="150.0" text="Today">
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="prevDateRangeButton" alignment="CENTER" mnemonicParsing="false" onAction="#handlePrevButtonClick" prefHeight="29.0" prefWidth="65.0" text="&lt;&lt;">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="calendarTitle" alignment="CENTER" prefHeight="60.0" prefWidth="383.0" style="-fx-background-color: #fff;" text="Month YEAR">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="nextDateRangeButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleNextButtonClick" prefHeight="26.0" prefWidth="65.0" text="&gt;&gt;">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="calendarViewComboBox" onAction="#handleCalendarViewComboBox" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <StackPane layoutY="101.0" prefHeight="566.0" prefWidth="1048.0">
+                     <children>
+                        <GridPane fx:id="dayGridPane" gridLinesVisible="true" prefHeight="553.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="weekGridPane" gridLinesVisible="true" prefHeight="553.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="monthGridPane" gridLinesVisible="true" prefHeight="553.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <StackPane fx:id="dayHeaderStackPane" layoutY="69.0">
+                     <children>
+                        <GridPane fx:id="dayOfWeekISOfrLabelGridPane" prefHeight="30.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Lundi">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Mardi" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Mercredi" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Jeudi" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Samedi" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Vendredi" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Dimanche" GridPane.columnIndex="6">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="dayOfWeekISOenLabelGridPane" prefHeight="30.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Monday">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Tuesday" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Wednesday" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Thursday" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Saturday" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Friday" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Sunday" GridPane.columnIndex="6">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="dayOfWeekUSLabelGridPane" prefHeight="30.0" prefWidth="1048.0" style="-fx-background-color: #FFF;">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Sunday">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Monday" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Tuesday" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Wednesday" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Thursday" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Saturday" GridPane.columnIndex="6">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="37.0" prefWidth="150.0" text="Friday" GridPane.columnIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <Pane layoutY="105.0" prefHeight="668.0" prefWidth="228.0" style="-fx-background-color: #ccc; -fx-border-color: #FFF;">
+         <children>
+            <Accordion prefHeight="148.0" prefWidth="228.0">
+              <panes>
+                <TitledPane prefHeight="101.0" prefWidth="228.0" text="Appointments">
+                     <content>
+                        <VBox prefHeight="106.0" prefWidth="226.0" style="-fx-padding: 0;">
+                           <children>
+                              <Button fx:id="viewMyCalendarButton" mnemonicParsing="false" onAction="#handleViewMyCalendarButtonClick" prefHeight="25.0" prefWidth="240.0" text="View My Calendar" />
+                              <Button fx:id="addAppointmentMenuButton" mnemonicParsing="false" onAction="#handleAddAppointmentButton" prefHeight="25.0" prefWidth="340.0" text="Add Appointment" />
+                              <Button fx:id="viewOtherCalendarButton" mnemonicParsing="false" onAction="#handleViewOtherCalendarButton" prefHeight="25.0" prefWidth="240.0" text="View Other Calendar" />
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                </TitledPane>
+                <TitledPane prefHeight="93.0" prefWidth="228.0" text="Customers">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 0;">
+                           <children>
+                              <Button fx:id="manageCustomersButton" mnemonicParsing="false" onAction="#handleManageCustomersButton" prefHeight="25.0" prefWidth="249.0" text="Manage Customers" />
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                </TitledPane>
+                  <TitledPane prefHeight="146.0" prefWidth="228.0" text="Reports">
+                     <content>
+                        <VBox prefHeight="150.0" prefWidth="226.0" style="-fx-padding: 0;">
+                           <children>
+                              <Button fx:id="apptTypeByMonthButton" mnemonicParsing="false" onAction="#handleApptTypeByMonthButton" prefHeight="25.0" prefWidth="249.0" text="Appointment Types By Month" />
+                              <Button fx:id="consultantScheduleButton" mnemonicParsing="false" onAction="#handleConsultantScheduleButton" prefHeight="25.0" prefWidth="363.0" text="Schedule By Consultant" />
+                              <Button fx:id="avgDailyApptsButton" mnemonicParsing="false" onAction="#handleAvgDailyApptsButton" prefHeight="43.0" prefWidth="224.0" text="Avg Daily Appts By Consultant" textAlignment="CENTER" wrapText="true" />
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TitledPane>
+                <TitledPane expanded="false" prefHeight="39.0" prefWidth="228.0" text="User Settings">
+                     <content>
+                        <VBox prefHeight="17.0" prefWidth="226.0" style="-fx-padding: 0;">
+                           <children>
+                              <Button fx:id="changePasswordButton" mnemonicParsing="false" onAction="#handleChangePasswordButton" prefHeight="25.0" prefWidth="244.0" text="Change Password" />
+                           </children></VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                </TitledPane>
+                  <TitledPane expanded="false" prefHeight="135.0" prefWidth="228.0" text="System">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 0;">
+                           <children>
+                              <Button fx:id="manageUsersButton" mnemonicParsing="false" onAction="#handleManagerUsersButton" prefHeight="25.0" prefWidth="244.0" text="Manage Users" />
+                              <Button fx:id="manageCitiesCountriesButton" mnemonicParsing="false" onAction="#handleManagerCitiesCountriesButton" prefHeight="25.0" prefWidth="244.0" text="Manage Cities/Countries" />
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </children></Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1170.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.ManageCustomersController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="1170.0" styleClass="form-heading-pane">
+         <children>
+            <Label alignment="CENTER" layoutX="396.0" layoutY="31.0" prefHeight="44.0" prefWidth="358.0" styleClass="form-heading-title-label" text="Manage Customers" />
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="55.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="currentUserLabel" layoutX="984.0" layoutY="38.0" prefHeight="30.0" prefWidth="122.0" styleClass="form-heading-user-label" text="User Name" />
+            <ProgressIndicator fx:id="progressIndicator" layoutX="782.0" layoutY="32.0" prefHeight="40.0" prefWidth="65.0" style="-fx-progress-color: white;" />
+         </children>
+      </AnchorPane>
+      <HBox id="manage-customers-subheader" alignment="CENTER" layoutY="103.0" prefHeight="30.0" prefWidth="1170.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="112.0" text="Total Customers:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalCustomerLabel" prefHeight="20.0" prefWidth="52.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="133.0" text="Active Customers:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="activeCustomerLabel" prefHeight="20.0" prefWidth="52.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox id="manage-customers-filter-box" layoutY="133.0" prefHeight="568.0" prefWidth="220.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="235.0" text="Filters" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Label>
+            <CheckBox fx:id="includeInactiveCheckBox" mnemonicParsing="false" prefHeight="21.0" prefWidth="264.0" text="Include Inactive">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <Label prefHeight="20.0" prefWidth="269.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="8.0" prefWidth="246.0" spacing="5.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <children>
+                  <TextField fx:id="customerFilterTextField" prefHeight="20.0" prefWidth="201.0" promptText="Customer..." />
+                  <ImageView fx:id="clearCustomerFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearCustomerFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+                     <image>
+                        <Image url="@clear-filter.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+            <Label prefHeight="20.0" prefWidth="316.0" text="Phone">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="12.0" prefWidth="246.0" spacing="5.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <children>
+                  <TextField fx:id="phoneFilterTextField" prefHeight="21.0" prefWidth="281.0" promptText="Phone..." />
+                  <ImageView fx:id="clearPhoneFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearPhoneFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+                     <image>
+                        <Image url="@clear-filter.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+            <Label prefHeight="20.0" prefWidth="341.0" text="City">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="0.0" prefWidth="246.0" spacing="5.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <children>
+                  <TextField fx:id="cityFilterTextField" prefHeight="20.0" prefWidth="417.0" promptText="City..." />
+                  <ImageView fx:id="clearCityFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearCityFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+                     <image>
+                        <Image url="@clear-filter.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+            <Label prefHeight="20.0" prefWidth="336.0" text="Country">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="0.0" prefWidth="246.0" spacing="5.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <children>
+                  <TextField fx:id="countryFilterTextField" prefHeight="20.0" prefWidth="383.0" promptText="Country..." />
+                  <ImageView fx:id="clearCountryFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" onMouseClicked="#handleClearCountryFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+                     <image>
+                        <Image url="@clear-filter.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="statusLabel" layoutX="235.0" layoutY="657.0" prefHeight="20.0" prefWidth="805.0" styleClass="status-label" />
+      <TableView fx:id="customerTable" layoutX="235.0" layoutY="180.0" prefHeight="456.0" prefWidth="918.0">
+        <columns>
+            <TableColumn fx:id="editColumn" prefWidth="45.0" text="Edit" />
+            <TableColumn fx:id="deleteColumn" prefWidth="45.0" text="Delete" />
+          <TableColumn fx:id="customerNameColumn" prefWidth="160.0" text="Customer Name" />
+            <TableColumn fx:id="phoneColumn" prefWidth="110.0" text="Phone" />
+          <TableColumn fx:id="streetAddrColumn" prefWidth="200.0" text="Street Address" />
+            <TableColumn fx:id="cityColumn" prefWidth="160.0" text="City" />
+            <TableColumn fx:id="countryColumn" prefWidth="197.0" text="Country" />
+        </columns>
+      </TableView>
+      <Button fx:id="addCustomerButton" layoutX="1039.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleAddCustomerButton" prefHeight="30.0" prefWidth="114.0" text="Add Customer" />
+      <Button fx:id="closeButton" layoutX="1066.0" layoutY="652.0" mnemonicParsing="false" onAction="#handleCloseButton" prefHeight="30.0" prefWidth="87.0" text="Close" />
+   </children>
+</AnchorPane>

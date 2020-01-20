@@ -1,0 +1,261 @@
+/*
+Project written by: Tim Smith
+
+*/
+/* 
+    Created on : Oct 7, 2019, 11:49:01 PM
+    Author     : Tim Smith
+*/
+
+GridPane:disabled > * {
+    -fx-opacity: 1.0;
+}
+
+.button {
+    -fx-font: 14px "System";
+}
+
+.calendar-appt-label {
+    -fx-text-fill: #1f60e0;
+    -fx-underline: true;
+    -fx-padding: 0 0 0 5
+}
+
+.calendar-appt-label:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: cyan;
+}
+
+.chart-bar {
+    -fx-bar-fill: #124;
+}
+
+.chart {
+    -fx-font: 24px "Cambria";
+
+}
+
+.clickable-image {
+    -fx-effect: dropshadow( gaussian , rgba(17, 34, 68, .5) , 0,0,1,1 );
+}
+
+.clickable-image:hover {
+    -fx-cursor: hand;
+}
+
+.clickable-image:pressed {
+    -fx-translate-x: 3;
+    -fx-translate-y: 3;
+    -fx-effect: dropshadow( gaussian , rgba(25,25,25,0.5) , 0,0,0,0 );
+}
+
+.default-background {
+    -fx-background-color: #f4f4f4;
+}
+
+.dialog-heading-pane {
+    -fx-background-color: #124;
+    -fx-pref-height: 60;
+    -fx-alignment: center;
+}
+
+.dialog-heading-title-label {
+    -fx-font: 24px "Cambria";
+    -fx-text-fill: white;
+}
+
+.error-border {
+   -fx-border-style: solid;
+   -fx-border-color: red;
+}
+
+.error-label {
+    -fx-font: 14px "System";
+    -fx-text-fill: red;
+}
+
+.fav-button {
+    -fx-background-color: #124;
+    -fx-background-radius: 15;
+    -fx-pref-height: 30;
+    -fx-pref-width: 30;
+    -fx-max-height: 30;
+    -fx-max-width: 30;
+    -fx-font: 14px "Cambria";
+    -fx-text-fill: white;
+}
+
+.fav-button:hover {
+    -fx-background-color: #0b497e;
+    -fx-background-radius: 15;
+    -fx-pref-height: 30;
+    -fx-pref-width: 30;
+    -fx-max-height: 30;
+    -fx-max-width: 30;
+    -fx-font: 14px "Cambria";
+    -fx-text-fill: white;
+}
+
+.form-heading-title-label {
+    -fx-font: 36px "Cambria";
+    -fx-text-fill: white;
+}
+
+.form-heading-user-label {
+    -fx-font: 18px "Cambria";
+    -fx-text-fill: white;
+}
+
+.form-heading-pane {
+    -fx-background-color: #124;
+    -fx-pref-height: 104;
+}
+
+.form-label {
+    -fx-font: 14px "System";
+}
+
+.rounded-button {
+    -fx-font: 24px "System";
+    -fx-text-fill: white;
+    -fx-background-radius: 25;
+    -fx-background-color: #1f60e0;
+}
+
+.choice-box {
+    -fx-font: 14px "System";
+}
+
+.choice-box:disabled > * {
+    -fx-opacity: 1.0;
+}
+
+.combo-box {
+    -fx-font: 14px "System";
+}
+
+.combo-box:disabled > * {
+    -fx-opacity: 1.0;
+}
+
+.pane-header-label {
+    -fx-font: 22px "System";
+    -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 95%, lightgray, white);
+}
+
+.report-heading {
+    -fx-alignment: CENTER;
+    -fx-font: 24px "Cambria";
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.spinner .text-field {
+    -fx-font: 14px "System";
+    -fx-padding: 0 0 0 5;
+}
+
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+    /*-fx-pref-width: 30%;*/
+}
+
+.status-label {
+    -fx-font: 14px "System";
+    -fx-text-fill: #22affc;
+    -fx-font-style: italic;
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.table-change-password-button {
+    -fx-font: 6px "System";
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-image: url(../img/keylock.png);
+    -fx-background-size: 20px;
+}
+
+.table-delete-button {
+    -fx-font: 6px "System";
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-image: url(../img/trash-icon-small.png);
+    -fx-background-size: 20px;
+}
+
+.table-edit-button {
+    -fx-font: 6px "System";
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-background-image: url(../img/pencilicon.png);
+    -fx-background-size: 20px;
+}
+
+.table-select-button {
+    -fx-font: 6px "System";
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-background-image: url(../img/check-mark.png);
+    -fx-background-size: 20px;
+}
+
+.table-view .button:hover {
+    -fx-cursor: hand;
+}
+
+.table-view .column-header .label {
+  -fx-text-alignment: center;
+  -fx-wrap-text: true;
+}
+
+.text-area {
+    -fx-font: 14px "System";
+}
+
+.text-area:disabled > * {
+    -fx-opacity: 1.0;
+}
+
+.text-field {
+    -fx-padding: 0 0 0 10;
+    -fx-font: 14px "System";
+    -fx-border-style: none;
+}
+
+.text-field:disabled {
+    -fx-opacity: 1.0;
+}
+
+.v-box-opaque {
+    -fx-background-color: #f4f4f4;
+    -fx-opacity: 1.0;
+}
+
+#addUserPane {
+    -fx-border-color: #cdcdcd;
+    -fx-border-style:solid;
+    -fx-border-width: 1px;
+}
+
+#manage-customers-filter-box {
+    -fx-border-color: #124;
+    -fx-border-style: solid;
+    -fx-border-width: 0 1px 0 0;
+}
+
+#manage-customers-subheader {
+    -fx-background-color:#e4dec3;
+    -fx-border-color: #124;
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1px 0;
+}
+
+#temp-button {
+    -fx-font: 72px "System";
+    -fx-background-color: #ed7b06;
+}
+
+
+

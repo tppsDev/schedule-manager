@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="648.0" prefWidth="1066.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.AvgDailyApptsByUserReportController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <HBox prefHeight="73.0" prefWidth="1072.0" styleClass="report-heading">
+         <children>
+            <Label text="Average Daily Appointments" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="16.0" layoutY="80.0" minHeight="538.0" minWidth="1041.0" prefHeight="538.0" prefWidth="1041.0">
+         <children>
+            <VBox fx:id="reportPane" alignment="CENTER" minHeight="538.0" prefHeight="538.0" prefWidth="1279.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

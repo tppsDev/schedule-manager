@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="725.0" prefWidth="935.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schedulemanager.view_controller.ManageUsersController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="935.0" styleClass="form-heading-pane">
+         <children>
+            <Label alignment="CENTER" layoutX="347.0" layoutY="31.0" prefHeight="44.0" prefWidth="241.0" styleClass="form-heading-title-label" text="Manage Users" />
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="55.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/softwareIicon2.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="currentUserLabel" layoutX="768.0" layoutY="38.0" prefHeight="30.0" prefWidth="122.0" styleClass="form-heading-user-label" text="User Name" />
+            <Label alignment="CENTER_RIGHT" layoutX="646.0" layoutY="38.0" prefHeight="30.0" prefWidth="110.0" styleClass="form-heading-user-label" text="Signed in as:" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="20.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search-icon-24px.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="userFilterTextBox" layoutX="40.0" layoutY="122.0" prefHeight="21.0" prefWidth="133.0" promptText="Username filter..." />
+      <ImageView fx:id="clearFilterImageView" accessibleHelp="Clear Filter" accessibleText="Clear Filter" fitHeight="20.0" fitWidth="20.0" layoutX="180.0" layoutY="122.0" onMouseClicked="#handleClearFilterImageView" pickOnBounds="true" preserveRatio="true" styleClass="clickable-image">
+         <image>
+            <Image url="@clear-filter.png" />
+         </image>
+      </ImageView>
+      <CheckBox fx:id="includeInactiveCheckBox" layoutX="245.0" layoutY="122.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="133.0" text="Include Inactive">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </CheckBox>
+      <Label alignment="CENTER_RIGHT" layoutX="535.0" layoutY="122.0" prefHeight="20.0" prefWidth="98.0" text="Total Users:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalUsersLabel" layoutX="640.0" layoutY="122.0" prefHeight="20.0" prefWidth="62.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="713.0" layoutY="122.0" prefHeight="20.0" prefWidth="122.0" text="Total Active Users:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalActiveUsersLabel" layoutX="843.0" layoutY="122.0" prefHeight="20.0" prefWidth="62.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="userTableView" layoutX="30.0" layoutY="158.0" prefHeight="220.0" prefWidth="875.0">
+        <columns>
+            <TableColumn fx:id="editColumn" prefWidth="40.0" text="Edit" />
+            <TableColumn fx:id="deleteColumn" prefWidth="45.0" text="Delete" />
+            <TableColumn fx:id="changePasswordColumn" prefWidth="65.0" text="Change&#10;Password" />
+          <TableColumn fx:id="userNameColumn" editable="false" prefWidth="145.0" text="Username" />
+            <TableColumn fx:id="activeColumn" prefWidth="50.0" text="Active" />
+            <TableColumn fx:id="createDateColumn" prefWidth="120.0" text="Created Date" />
+            <TableColumn fx:id="createdByColumn" prefWidth="145.0" text="Created By" />
+            <TableColumn fx:id="lastUpdateColumn" prefWidth="119.0" text="Last Update" />
+            <TableColumn fx:id="lastUpdateByColumn" minWidth="9.0" prefWidth="145.0" text="Last Updated By" />
+        </columns>
+      </TableView>
+      <Button fx:id="addUserButton" layoutX="827.0" layoutY="407.0" mnemonicParsing="false" onAction="#handleAddUserButton" text="Add User">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <StackPane layoutX="30.0" layoutY="407.0">
+         <children>
+            <AnchorPane id="editUserPane" fx:id="editUserPane" prefHeight="304.0" prefWidth="473.0" styleClass="default-background">
+               <children>
+                  <Label layoutX="105.0" layoutY="7.0" text="Edit User">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="48.0" prefHeight="20.0" prefWidth="86.0" styleClass="form-label" text="Username" />
+                  <TextField fx:id="editFormUserNameTextField" layoutX="40.0" layoutY="68.0" prefHeight="21.0" prefWidth="200.0" />
+                  <CheckBox fx:id="editFormActiveCheckBox" layoutX="40.0" layoutY="108.0" mnemonicParsing="false" text="Active">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="editFormSaveButton" layoutX="191.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleEditFormSubmitButton" text="Save" />
+                  <Label fx:id="editFormUserNameErrorLabel" alignment="TOP_LEFT" layoutX="248.0" layoutY="67.0" prefHeight="41.0" prefWidth="200.0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="editFormCancelButton" layoutX="116.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleEditFormCancelButton" text="Cancel" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="addUserPane" fx:id="addUserPane" prefHeight="304.0" prefWidth="473.0" styleClass="default-background">
+               <children>
+                  <Label layoutX="110.0" layoutY="10.0" text="Add User">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="48.0" prefHeight="20.0" prefWidth="86.0" styleClass="form-label" text="Username" />
+                  <TextField fx:id="addFormUserNameTextField" layoutX="40.0" layoutY="68.0" prefHeight="21.0" prefWidth="200.0" />
+                  <Label layoutX="40.0" layoutY="103.0" prefHeight="20.0" prefWidth="86.0" styleClass="form-label" text="Password" />
+                  <PasswordField fx:id="addFormPasswordField" layoutX="40.0" layoutY="123.0" prefHeight="21.0" prefWidth="200.0" />
+                  <Label layoutX="40.0" layoutY="152.0" prefHeight="44.0" prefWidth="86.0" styleClass="form-label" text="Confirm Password" wrapText="true" />
+                  <PasswordField fx:id="addFormConfirmPasswordField" layoutX="40.0" layoutY="196.0" prefHeight="21.0" prefWidth="200.0" />
+                  <CheckBox fx:id="addFormActiveCheckBox" layoutX="40.0" layoutY="240.0" mnemonicParsing="false" selected="true" text="Active">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="addFormSubmitButton" layoutX="197.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleAddFormSubmitButton" text="Submit" />
+                  <Label fx:id="addFormUserNameErrorLabel" alignment="TOP_LEFT" layoutX="248.0" layoutY="67.0" prefHeight="41.0" prefWidth="200.0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addFormPasswordErrorLabel" alignment="TOP_LEFT" layoutX="248.0" layoutY="124.0" prefHeight="41.0" prefWidth="200.0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addFormCancelButton" layoutX="126.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleAddFormCancelButton" text="Cancel" />
+                  <Label fx:id="addFormConfirmPasswordErrorLabel" alignment="TOP_LEFT" layoutX="248.0" layoutY="197.0" prefHeight="41.0" prefWidth="200.0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="30.0" layoutY="385.0" prefHeight="17.0" prefWidth="875.0" styleClass="status-label" textFill="#22affc">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Label>
+      <ProgressIndicator fx:id="progressIndicator" layoutX="445.0" layoutY="115.0" prefHeight="33.0" prefWidth="45.0" />
+      <Button fx:id="closeButton" layoutX="827.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleCloseButton" prefHeight="30.0" prefWidth="78.0" text="Close" />
+   </children>
+</AnchorPane>
